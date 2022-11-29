@@ -1,0 +1,351 @@
+[
+    {
+        "id": "bd50401b328f8b4c",
+        "type": "tab",
+        "label": "Flow 7 G7",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "61c2f048b7bda710",
+        "type": "mqtt in",
+        "z": "bd50401b328f8b4c",
+        "name": "",
+        "topic": "codigoIoT/ejemplo/mqtt",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "edd3004a.11da88",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 180,
+        "y": 80,
+        "wires": [
+            [
+                "6aef822bce78a5a2"
+            ]
+        ]
+    },
+    {
+        "id": "939b7924c38071b0",
+        "type": "debug",
+        "z": "bd50401b328f8b4c",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 270,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "6aef822bce78a5a2",
+        "type": "json",
+        "z": "bd50401b328f8b4c",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 410,
+        "y": 80,
+        "wires": [
+            [
+                "66fc27aaf178b28a",
+                "cb6c49acd2a76771",
+                "f90a3e80861f0174",
+                "b19ac6381bf7e5dc",
+                "84bded2dcf7cee2b",
+                "512ef4cc8a7dea20"
+            ]
+        ]
+    },
+    {
+        "id": "66fc27aaf178b28a",
+        "type": "function",
+        "z": "bd50401b328f8b4c",
+        "name": "ID",
+        "func": "msg.payload = msg.payload.id\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 590,
+        "y": 80,
+        "wires": [
+            [
+                "05199e9bf337143e"
+            ]
+        ]
+    },
+    {
+        "id": "cb6c49acd2a76771",
+        "type": "function",
+        "z": "bd50401b328f8b4c",
+        "name": "Temp",
+        "func": "msg.payload = msg.payload.temp\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 590,
+        "y": 160,
+        "wires": [
+            [
+                "236a634c585c9fa4"
+            ]
+        ]
+    },
+    {
+        "id": "f90a3e80861f0174",
+        "type": "function",
+        "z": "bd50401b328f8b4c",
+        "name": "Hum",
+        "func": "msg.payload = msg.payload.hum\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 590,
+        "y": 240,
+        "wires": [
+            [
+                "17cbfe608aff75f3"
+            ]
+        ]
+    },
+    {
+        "id": "05199e9bf337143e",
+        "type": "ui_text",
+        "z": "bd50401b328f8b4c",
+        "group": "1f87199c8f99df1f",
+        "order": 1,
+        "width": 6,
+        "height": 1,
+        "name": "",
+        "label": "ID",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 810,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "236a634c585c9fa4",
+        "type": "ui_text",
+        "z": "bd50401b328f8b4c",
+        "group": "1f87199c8f99df1f",
+        "order": 2,
+        "width": 6,
+        "height": 1,
+        "name": "",
+        "label": "Temperatura",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 830,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "17cbfe608aff75f3",
+        "type": "ui_text",
+        "z": "bd50401b328f8b4c",
+        "group": "1f87199c8f99df1f",
+        "order": 3,
+        "width": 6,
+        "height": 1,
+        "name": "",
+        "label": "Humedad",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 820,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "af65c2d40e222a46",
+        "type": "ui_chart",
+        "z": "bd50401b328f8b4c",
+        "name": "",
+        "group": "31f73fa250883cf1",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "label": "Historico Temperatura y Humedad Relativa",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "100",
+        "removeOlder": "20",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 930,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b19ac6381bf7e5dc",
+        "type": "function",
+        "z": "bd50401b328f8b4c",
+        "name": "Temperatura",
+        "func": "msg.label = \"Temperatura\";\nmsg.topic = \"Temperatura\";\nmsg.payload = msg.payload.temp;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 320,
+        "wires": [
+            [
+                "af65c2d40e222a46"
+            ]
+        ]
+    },
+    {
+        "id": "84bded2dcf7cee2b",
+        "type": "function",
+        "z": "bd50401b328f8b4c",
+        "name": "Humedad",
+        "func": "msg.label = \"Humedad\";\nmsg.topic = \"Humedad\";\nmsg.payload = msg.payload.hum;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 600,
+        "y": 380,
+        "wires": [
+            [
+                "af65c2d40e222a46"
+            ]
+        ]
+    },
+    {
+        "id": "512ef4cc8a7dea20",
+        "type": "function",
+        "z": "bd50401b328f8b4c",
+        "name": "Sobretemperatura",
+        "func": "if (msg.payload. temp > 28){\n    msg.payload = \"true\";\n }   else{\n        msg.payload = \"false\";\n\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 630,
+        "y": 460,
+        "wires": [
+            [
+                "8fc9c4e4f07d84da"
+            ]
+        ]
+    },
+    {
+        "id": "8fc9c4e4f07d84da",
+        "type": "mqtt out",
+        "z": "bd50401b328f8b4c",
+        "name": "",
+        "topic": "codigoIoT/ejemplo/mqttin",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "edd3004a.11da88",
+        "x": 910,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "edd3004a.11da88",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "1f87199c8f99df1f",
+        "type": "ui_group",
+        "name": "Datos instantaneos",
+        "tab": "61b2a867ae8d5864",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "31f73fa250883cf1",
+        "type": "ui_group",
+        "name": "Historico",
+        "tab": "61b2a867ae8d5864",
+        "order": 2,
+        "disp": true,
+        "width": "12",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "61b2a867ae8d5864",
+        "type": "ui_tab",
+        "name": "Estacion de Clima g7",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
