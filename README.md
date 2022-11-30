@@ -99,5 +99,5 @@ A continuación puedes ver enlaces a las evidencias de este proyecto
 
 # Créditos
 
-Desarrollado por Hugo Escalpelo
+Desarrollado por Jose Omar Ojeda Aguilar
 - [GitHub](https://github.com/joseomarojeda)
